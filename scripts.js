@@ -85,6 +85,8 @@ function changeOrigin(){
         currencyOriginName.innerHTML = "Bitcoin"
         currencyOriginImage.src = "./assets/bitcoin.png"
     }
+
+    convertValues()
 }
 
 function changeCurrency(){
