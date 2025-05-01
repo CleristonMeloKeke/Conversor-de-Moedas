@@ -3,7 +3,7 @@ const currencySelect = document.querySelector(".currency-select")
 const currencyOrigin = document.querySelector(".currency-origin")
 const currencyConverted = document.querySelector(".currency-value")
 
-const real = 1.0
+const real = 1
 const dolarToday = 5.2
 const euroToday = 6.2
 const libraToday = 7.56
