@@ -3,29 +3,24 @@ const currencySelect = document.querySelector(".currency-select")
 const currencyOrigin = document.querySelector(".currency-origin")
 const currencyConverted = document.querySelector(".currency-value")
 
-const real = 1
-const dolarToday = 5.2
-const euroToday = 6.2
-const libraToday = 7.56
-const bitcoinToday = 93495.7
-
-function convertValues(){
+async function convertValues(){
     const currencyOrigin = document.querySelector(".currency-origin")
     const inputCurrencyValue = document.querySelector(".input-currency").value
     const currencyValueToCovert = document.querySelector(".currency-value-to-convert")
     const currencyValueConverted = document.querySelector(".currency-value")
 
-    const real = 1
-    const dolarToday = 5.2
-    const euroToday = 6.2
-    const libraToday = 7.56
-    const bitcoinToday = 93495.7
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL").then(response => response.json())
+
+    const dolarToday = data.USDBRL.high
+    const euroToday = data.EURBRL.high
+    const libraToday = data.GBPBRL.high
+    const bitcoinToday = data.BTCBRL.high
 
     if(currencySelect.value == "real"){
         currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL"
-        }).format(inputCurrencyValue  / real)
+        }).format(inputCurrencyValue  / 1)
     }
 
     if(currencySelect.value == "dolar"){
